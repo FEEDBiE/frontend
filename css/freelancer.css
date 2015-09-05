@@ -286,6 +286,7 @@ section.success a.active {
 }
 
 .floating-label-form-group input,
+.floating-label-form-group span,
 .floating-label-form-group textarea {
     z-index: 1;
     position: relative;
@@ -314,6 +315,20 @@ section.success a.active {
     -moz-transition: top .3s ease,opacity .3s ease;
     -ms-transition: top .3s ease,opacity .3s ease;
     transition: top .3s ease,opacity .3s ease;
+}
+
+.achieved {
+}
+.achieved input {
+    margin-left: 2em;
+}
+.achieved label {
+    opacity: 1;
+    display: inline;
+    position: initial;
+    font-size: 1.5em;
+    font-weight: 200;
+    margin-left: 1em;
 }
 
 .floating-label-form-group::not(:first-child) {
