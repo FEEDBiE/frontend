@@ -1,0 +1,15 @@
+.green
+{
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: #53AD79;
+}
+
+.yellow
+{
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: #f39c12;
+}

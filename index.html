@@ -14,6 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="feedbie/css/feedbie.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
@@ -28,7 +29,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="feedbie/js/students-questions.js"></script>
+    <script src="feedbie/js/results.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -46,6 +47,7 @@
           title: 'You created a design?',
           is3D: true,
           legend: 'none',
+          colors: ['#53AD79', '#f39c12']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_1'));
@@ -62,6 +64,7 @@
           title: 'You have an architecture?',
           is3D: true,
           legend: 'none',
+            colors: ['#53AD79', '#f39c12']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_2'));
@@ -78,6 +81,7 @@
           title: 'You have a working product?',
           is3D: true,
           legend: 'none',
+            colors: ['#53AD79', '#f39c12']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3'));
@@ -133,8 +137,12 @@
           <div id="piechart_1" style="width: 32%; display: inline-block;"></div>
           <div id="piechart_2" style="width: 32%; display: inline-block;"></div>
           <div id="piechart_3" style="width: 32%; display: inline-block;"></div>
-        </div>
-      </div>
+
+            <h2 class="sub-header">Details</h2>
+            <div>
+                <div class="table-responsive" id="results">
+                </div>
+            </div>
     </div>
 
     <!-- Bootstrap core JavaScript
