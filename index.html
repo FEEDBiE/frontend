@@ -29,6 +29,61 @@
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="feedbie/js/students-questions.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart1);
+      google.setOnLoadCallback(drawChart2);
+      google.setOnLoadCallback(drawChart3);
+      function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Students'],
+          ['Achieved',     11],
+          ['Not Yet',     2],
+        ]);
+
+        var options = {
+          title: 'You created a design?',
+          is3D: true,
+          legend: 'none',
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_1'));
+        chart.draw(data, options);
+      }
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Students'],
+          ['Achieved',     11],
+          ['Not Yet',     2],
+        ]);
+
+        var options = {
+          title: 'You have an architecture?',
+          is3D: true,
+          legend: 'none',
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_2'));
+        chart.draw(data, options);
+      }
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Students'],
+          ['Achieved',     11],
+          ['Not Yet',     2],
+        ]);
+
+        var options = {
+          title: 'You have a working product?',
+          is3D: true,
+          legend: 'none',
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3'));
+        chart.draw(data, options);
+      }
+    </script>
   </head>
 
   <body>
@@ -49,7 +104,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-2 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li>&nbsp;</li>
             <li class="active"><a href="#"><i class="fa fa-child"></i> Class</a></li>
@@ -58,7 +113,7 @@
             <li><a href="#"><i class="fa fa-university"></i> Principal</a></li>
           </ul>
         </div>
-        <div class="col-sm-3 col-md-2 col-sm-offset-2 sidebar">
+        <div class="col-sm-2 col-md-2 col-sm-offset-2 col-md-offset-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><span>Select Lesson</span></li>
             <li class="active"><a href="#"><i class="fa fa-check"></i> AWShine Hack</a></li>
@@ -71,11 +126,13 @@
             <li><a href="#"> <i class="fa fa-close"></i> English 4</a></li>
           </ul>
         </div>
-        <div class="col-sm-9 col-sm-offset-5 col-md-10 col-md-offset-4 main">
+        <div class="col-sm-8 col-md-8 col-sm-offset-4 col-md-offset-4 main">
           <h1 class="page-header">Children</h1>
 
           <h2 class="sub-header">Results</h2>
-          <div id="results" />
+          <div id="piechart_1" style="width: 32%; display: inline-block;"></div>
+          <div id="piechart_2" style="width: 32%; display: inline-block;"></div>
+          <div id="piechart_3" style="width: 32%; display: inline-block;"></div>
         </div>
       </div>
     </div>
