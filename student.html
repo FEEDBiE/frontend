@@ -28,7 +28,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="feedbie/js/students-questions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="feedbie/js/students-questions.js"></script>
 </head>
 
 <body id="page-top" class="index">
@@ -66,7 +68,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Today's goal:</h2>
-                    <h2>Learning to build an MVP</h2>
+                    <h2 id="lessonName">Learning to build an MVP</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -82,41 +84,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <span>You created a design?</span>
-                                <div class="achieved col-lg-12 text-center">
-                                    <input id="designed1" type="radio" name="designed" value="achieved">
-                                    <label for="designed1">Achieved</label>
-                                    <input id="designed2" type="radio" name="designed" value="close">
-                                    <label for="designed2">Got close</label>
-                                </div>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <span>You created a system architecture?</span>
-                                <div class="achieved col-lg-12 text-center">
-                                    <input id="architected1" type="radio" name="architected" value="achieved">
-                                    <label for="architected1">Achieved</label>
-                                    <input id="architected2" type="radio" name="architected" value="close">
-                                    <label for="architected2">Got close</label>
-                                </div>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <span>You have a working product?</span>
-                                 <div class="achieved col-lg-12 text-center">
-                                    <input id="product1" type="radio" name="product" value="achieved">
-                                    <label for="product1">Achieved</label>
-                                    <input id="product2" type="radio" name="product" value="close">
-                                    <label for="product2">Got close</label>
-                                </div>
-                               <p class="help-block text-danger"></p>
-                            </div>
+                        <div class="row control-group" id="questions">
                         </div>
                         <br>
                         <div id="success"></div>
