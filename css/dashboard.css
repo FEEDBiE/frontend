@@ -59,6 +59,13 @@ body {
   padding-right: 20px;
   padding-left: 20px;
 }
+.nav-sidebar > li > a > i {
+  padding-right: 5px;
+}
+.nav-sidebar > li > span {
+  margin-left: 20px;
+  color: #337ab7;
+}
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
