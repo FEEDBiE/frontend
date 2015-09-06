@@ -659,7 +659,7 @@
               },
               failure: function () {
                 validator.lastValid = true;
-                validator.message = "ajax call failed";
+                validator.message = "requests call failed";
                 validator.lastFinished = true;
                 $this.data("validation" + validator.validatorName + "Message", validator.message);
                 // Timeout is set to avoid problems with the events being considered 'already fired'

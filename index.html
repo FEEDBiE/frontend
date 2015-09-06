@@ -28,66 +28,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="feedbie/js/results.js"></script>
+
+
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart1);
-      google.setOnLoadCallback(drawChart2);
-      google.setOnLoadCallback(drawChart3);
-      function drawChart1() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Students'],
-          ['Achieved',     11],
-          ['Not Yet',     2],
-        ]);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-        var options = {
-          title: 'You created a design?',
-          is3D: true,
-          legend: 'none',
-          colors: ['#53AD79', '#f39c12']
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_1'));
-        chart.draw(data, options);
-      }
-      function drawChart2() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Students'],
-          ['Achieved',     11],
-          ['Not Yet',     2],
-        ]);
-
-        var options = {
-          title: 'You have an architecture?',
-          is3D: true,
-          legend: 'none',
-            colors: ['#53AD79', '#f39c12']
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_2'));
-        chart.draw(data, options);
-      }
-      function drawChart3() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Students'],
-          ['Achieved',     11],
-          ['Not Yet',     2],
-        ]);
-
-        var options = {
-          title: 'You have a working product?',
-          is3D: true,
-          legend: 'none',
-            colors: ['#53AD79', '#f39c12']
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3'));
-        chart.draw(data, options);
-      }
-    </script>
+    <script src="feedbie/js/results.js"></script>
+    <script src="feedbie/js/draw-charts.js"></script>
+    <script src="feedbie/js/requests/get-questions.js"></script>
+    
   </head>
 
   <body>

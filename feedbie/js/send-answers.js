@@ -12,24 +12,29 @@ $(function() {
             
             // get values from FORM
             var name = $("input#name").val();
-            var firstName = name; // For Success/Failure Message
+            var student_name = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
-            if (firstName.indexOf(' ') >= 0) {
-                firstName = name.split(' ').slice(0, -1).join(' ');
+            if (student_name.indexOf(' ') >= 0) {
+                student_name = name.split(' ').slice(0, -1).join(' ');
             }
             
             var responses = [];
+            var criterias = $("input#criteria1");
+            
+            for(var i=0; i < criterias.length; ++i) {
+                responses.push({
+                    criteria_id: criterias[i].name,
+                    achieved: criterias[i].checked
+                });
+            }
+            
             $.ajax({
-//                url: "http://hackathon-dev.elasticbeanstalk.com/responses/api/response/",
-                url: "http://192.168.6.234:8000/responses/api/response/",
+                url: "http://hackathon-dev.elasticbeanstalk.com/responses/api/response/",
                 type: "POST",
                 data: JSON.stringify({
                     "criteria_response_map": {
-                        "student_name": firstName,
-                        "responses": [
-                            {"criteria_id": 1, "achieved": true},
-                            {"criteria_id": 2, "achieved": false}
-                        ]
+                        "student_name": student_name,
+                        "responses": responses
                     }
                 }),
                 contentType: 'application/json',
@@ -40,7 +45,7 @@ $(function() {
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>Your message has been sent. </strong>");
+                        .append("<strong>Thank you! Your result has been sent.</strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
@@ -52,7 +57,7 @@ $(function() {
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#success > .alert-danger').append("<strong>Sorry " + student_name + ", it seems that my mail server is not responding. Please try again later!");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");

@@ -31,6 +31,7 @@
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="feedbie/js/students-questions.js"></script>
+    <script src="feedbie/js/requests/get-questions.js"></script>
     
     
     
@@ -39,7 +40,6 @@
         function pickProfile() {
             var numImages = images.length;
             var index = Math.floor(Math.random() * 7);
-            console.log(images[index]);
             var img = document.getElementById("profile").setAttribute("src", "img/"+images[index]);
         }
         window.addEventListener("load", pickProfile);
