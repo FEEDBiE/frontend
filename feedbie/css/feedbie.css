@@ -13,3 +13,8 @@
     border-radius: 50px;
     background: #f39c12;
 }
+
+
+.text-danger {
+    color: red;
+}
