@@ -1,13 +1,6 @@
 $(document).ready(function() {
-    $.get('http://hackathon-dev.elasticbeanstalk.com/lessons/api/lessons/1/')
+    $.get('http://hackathon-dev.elasticbeanstalk.com/responses/api/response/?lesson_id=1')
     .done(function(data) {
-           var datas = [
-               ['man', true, false, false],
-               ['to', true, false, false],
-               ['oo', true, false, false],
-               ['ma', true, false, false],
-               ['shoma', true, false, false]
-           ];
             
             var content = '<table class="table table-striped">';
                 content += '<thead><tr>';
@@ -17,13 +10,16 @@ $(document).ready(function() {
                 content += '<th>Q3</th>';
                 content += '</tr></thead>';
                 content += '<tbody>';
-            
-            datas.forEach(function(data) {
-                content += results(data[0], data[1], data[2], data[3]);
+
+            data.forEach(function(student) {
+                var achieved = [];
+                student.responses.forEach(function(response) {
+                    achieved.push(response.achieved)
+                });
+                content += results(student.student_name, achieved);
             });
             content += '</tbody></table>';
             
-            console.log(content);
             $('#results').html(content);
 
         }).fail(function(err) {
@@ -31,12 +27,12 @@ $(document).ready(function() {
 
     });
     
-    var results = function(student, a1, a2, a3) {
+    var results = function(student, achieved) {
         var content = '<tr>';
             content += '<td>' + student + '</td>';
-            content += '<td>' + (a1 === true ? trueCircle() : falseCircle()) + '</td>';
-            content += '<td>' + (a2 === true ? trueCircle() : falseCircle()) + '</td>';
-            content += '<td>' + (a3 === true ? trueCircle() : falseCircle()) + '</td>';
+            content += '<td>' + (achieved[0] === true ? trueCircle() : falseCircle()) + '</td>';
+            content += '<td>' + (achieved[1] === true ? trueCircle() : falseCircle()) + '</td>';
+            content += '<td>' + (achieved[2] === true ? trueCircle() : falseCircle()) + '</td>';
             content += '</tr>';
         return content;
     }
