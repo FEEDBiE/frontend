@@ -21,11 +21,11 @@ $(document).ready(function() {
         content += '<span>' + question + '</span>';
         content += '<div class="achieved col-lg-12 text-center">';
         
-        content += '<input id="criteria1" type="radio" name="' + id +  '" value="Achieved">';
-        content += '<label for="criteria1">Achieved</label>';
+        content += '<input id="criteria1-'+ id +'" type="radio" name="' + id +  '" value="Achieved">';
+        content += '<label for="criteria1-' + id + '">Achieved</label>';
         
-        content += '<input id="criteria2" type="radio" name="' + id +  '" value="Not Yet">';
-        content += '<label for="criteria2">Not Yet</label>';
+        content += '<input id="criteria2-'+ id +'" type="radio" name="' + id +  '" value="Not Yet">';
+        content += '<label for="criteria2-' + id + '">Not Yet</label>';
         
         content += '</div>';
         content += '<p class="help-block text-danger"></p>';
