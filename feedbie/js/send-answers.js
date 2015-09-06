@@ -14,7 +14,10 @@ $(function() {
             var student_name = $("input#name").val();
             
             var responses = [];
-            var criterias = $("input#criteria1");
+            
+            
+            
+            var criterias = $('[id^="criteria1"]');
             
             for(var i=0; i < criterias.length; ++i) {
                 responses.push({
