@@ -12,22 +12,28 @@ $(function() {
             
             // get values from FORM
             var name = $("input#name").val();
-            var email = $("input#email").val();
-            var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+            
+            var responses = [];
             $.ajax({
-                url: "././mail/contact_me.php",
+//                url: "http://hackathon-dev.elasticbeanstalk.com/responses/api/response/",
+                url: "http://192.168.6.234:8000/responses/api/response/?lesson_id=1",
                 type: "POST",
                 data: {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    message: message
+                    
+                        "criteria_response_map": {
+                            "student_name": firstName,
+                            "responses":  [
+                                {"criteria_id": 1, "achieved": true},
+                                {"criteria_id": 2, "achieved": false}
+                            ]
+                        }    
+                    
+                   
                 },
                 cache: false,
                 success: function() {
@@ -53,7 +59,7 @@ $(function() {
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
-                },
+                }
             })
         },
         filter: function() {
