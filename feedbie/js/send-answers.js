@@ -21,21 +21,18 @@ $(function() {
             var responses = [];
             $.ajax({
 //                url: "http://hackathon-dev.elasticbeanstalk.com/responses/api/response/",
-                url: "http://192.168.6.234:8000/responses/api/response/?lesson_id=1",
+                url: "http://192.168.6.234:8000/responses/api/response/",
                 type: "POST",
-                data: {
-                    
-                        "criteria_response_map": {
-                            "student_name": firstName,
-                            "responses":  [
-                                {"criteria_id": 1, "achieved": true},
-                                {"criteria_id": 2, "achieved": false}
-                            ]
-                        }    
-                    
-                   
-                },
-                cache: false,
+                data: JSON.stringify({
+                    "criteria_response_map": {
+                        "student_name": firstName,
+                        "responses": [
+                            {"criteria_id": 1, "achieved": true},
+                            {"criteria_id": 2, "achieved": false}
+                        ]
+                    }
+                }),
+                contentType: 'application/json',
                 success: function() {
                     // Enable button & show success message
                     $("#btnSubmit").attr("disabled", false);
@@ -64,7 +61,7 @@ $(function() {
         },
         filter: function() {
             return $(this).is(":visible");
-        },
+        }
     });
 
     $("a[data-toggle=\"tab\"]").click(function(e) {
