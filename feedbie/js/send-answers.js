@@ -11,12 +11,7 @@ $(function() {
             event.preventDefault();
             
             // get values from FORM
-            var name = $("input#name").val();
-            var student_name = name; // For Success/Failure Message
-            // Check for white space in name for Success/Fail message
-            if (student_name.indexOf(' ') >= 0) {
-                student_name = name.split(' ').slice(0, -1).join(' ');
-            }
+            var student_name = $("input#name").val();
             
             var responses = [];
             var criterias = $("input#criteria1");
