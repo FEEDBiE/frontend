@@ -1,28 +1,31 @@
-google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(function() {
+google.load("visualization", "1", {packages: ["corechart"]});
+google.setOnLoadCallback(drawAllCharts);
+
+function drawAllCharts() {
     $.get('http://hackathon-dev.elasticbeanstalk.com/responses/api/response/?lesson_id=1')
-        .done(function(data) {
+        .done(function (data) {
             var q1Achieved = 0;
             var q2Achieved = 0;
             var q3Achieved = 0;
-            
-            data.forEach(function(row) {
-                
+
+            data.forEach(function (row) {
+
                 row.responses[0].achieved ? q1Achieved++ : q1Achieved;
                 row.responses[1].achieved ? q2Achieved++ : q2Achieved;
                 row.responses[2].achieved ? q3Achieved++ : q3Achieved;
-                
+
             });
-            
+
             drawChart1([q1Achieved, data.length - q1Achieved]);
             drawChart2([q2Achieved, data.length - q2Achieved]);
             drawChart3([q3Achieved, data.length - q3Achieved]);
-            
-        }).fail(function(err) {
-            console.log("OoopSS!!!, An error happened:", err);
-        });
 
-});
+        }).fail(function (err) {
+            console.log("OoopSS!!!, An error happened:", err);
+        }).complete(function() {
+            setTimeout(drawAllCharts, 2000);
+        });
+}
 
 function drawChart1(results) {
     var data = google.visualization.arrayToDataTable([
