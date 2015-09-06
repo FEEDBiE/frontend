@@ -19,7 +19,7 @@ $(document).ready(function() {
 
         content += '<div class="form-group col-xs-12 floating-label-form-group controls">';
         content += '<span>' + question + '</span>';
-        content += '<div class="achieved col-lg-12 text-center">';
+        content += '<div class="achieved col-lg-12 right">';
         
         content += '<input id="criteria1-'+ id +'" type="radio" name="' + id +  '" value="Achieved">';
         content += '<label for="criteria1-' + id + '">Achieved</label>';
